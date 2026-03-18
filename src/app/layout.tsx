@@ -3,8 +3,8 @@ import { AuthProvider } from '@/context/AuthContext'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Tuesday Meetup',
-  description: 'Are you joining us this Tuesday?',
+  title: 'TSVE 3X3',
+  description: 'Kommst du zocken?',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

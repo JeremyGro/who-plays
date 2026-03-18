@@ -9,7 +9,7 @@ function Logo() {
   return (
     <div className="flex items-center gap-2 mb-6">
       <div className="w-2 h-2 rounded-full bg-green" />
-      <span className="text-sm font-semibold text-ink">Tuesday Meetup</span>
+      <span className="text-sm font-semibold text-ink">TSVE 3X3</span>
     </div>
   )
 }
@@ -76,7 +76,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm bg-white border border-border rounded-card shadow-card p-7 animate-fade-up">
         <Logo />
 
-        <h1 className="font-serif text-2xl text-ink font-normal mb-5">Sign in</h1>
+        <h1 className="font-serif text-2xl text-ink font-normal mb-5">Einloggen</h1>
 
         {/* Unverified warning */}
         {user && !user.emailVerified && (
@@ -86,11 +86,11 @@ export default function LoginPage() {
               <path d="M12 8v4M12 16h.01" strokeLinecap="round" />
             </svg>
             <div>
-              <strong className="block text-[13px] font-semibold">Email not verified</strong>
+              <strong className="block text-[13px] font-semibold">Email nicht bestätigt</strong>
               <span className="text-xs">
-                Check your inbox.{' '}
+                Überprüfe dein Mail Postfach.{' '}
                 {resent
-                  ? <span className="text-green font-medium">Resent ✓</span>
+                  ? <span className="text-green font-medium">Erneut gesendet ✓</span>
                   : <button onClick={handleResend} disabled={resending} className="underline bg-transparent border-none cursor-pointer text-xs text-yellow-800 p-0">
                       {resending ? 'Sending…' : 'Resend email'}
                     </button>
@@ -107,7 +107,7 @@ export default function LoginPage() {
           className="w-full flex items-center justify-center gap-2.5 py-2.5 bg-white border border-border rounded-xl text-sm font-semibold text-ink hover:bg-paper transition-colors cursor-pointer disabled:opacity-50"
         >
           <GoogleIcon />
-          {googleBusy ? 'Signing in…' : 'Continue with Google'}
+          {googleBusy ? 'Lädt…' : 'Weiter mit Google'}
         </button>
 
         {/* Divider */}
@@ -125,7 +125,7 @@ export default function LoginPage() {
             placeholder="you@example.com"
             className="px-3 py-2.5 border border-border rounded-lg text-sm text-ink bg-paper outline-none focus:border-ink transition-colors"
           />
-          <label className="text-[13px] font-semibold text-ink mt-2">Password</label>
+          <label className="text-[13px] font-semibold text-ink mt-2">Passwort</label>
           <input
             type="password" required value={pw}
             onChange={e => setPw(e.target.value)}
@@ -137,13 +137,13 @@ export default function LoginPage() {
             type="submit" disabled={busy || googleBusy}
             className="mt-3 py-2.5 bg-green text-white rounded-xl text-sm font-semibold border-none cursor-pointer disabled:opacity-50"
           >
-            {busy ? 'Signing in…' : 'Sign in'}
+            {busy ? 'Lädt...' : 'Einloggen'}
           </button>
         </form>
 
         <p className="mt-4 text-center text-[13px] text-muted">
-          Don't have an account?{' '}
-          <Link href="/register" className="text-green font-semibold no-underline">Create one</Link>
+          Noch keinen Account?{' '}
+          <Link href="/register" className="text-green font-semibold no-underline">Account erstellen</Link>
         </p>
       </div>
     </main>

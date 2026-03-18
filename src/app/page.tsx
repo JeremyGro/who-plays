@@ -40,7 +40,7 @@ function Logo() {
   return (
     <div className="flex items-center gap-2">
       <div className="w-2 h-2 rounded-full bg-green" />
-      <span className="text-sm font-semibold text-ink">Tuesday Meetup</span>
+      <span className="text-sm font-semibold text-ink">TSVE 3X3</span>
     </div>
   )
 }
@@ -114,14 +114,14 @@ export default function HomePage() {
       <main className="min-h-screen bg-paper flex items-center justify-center p-4">
         <div className="w-full max-w-sm bg-white border border-border rounded-card shadow-card p-7 animate-fade-up">
           <Logo />
-          <h1 className="font-serif text-2xl text-ink font-normal mt-5 mb-2">Log in to RSVP</h1>
-          <p className="text-sm text-muted mb-5">Sign in to let us know if you're joining this Tuesday.</p>
+          <h1 className="font-serif text-2xl text-ink font-normal mt-5 mb-2">Einloggen TSVE 3X3</h1>
+          <p className="text-sm text-muted mb-5">Logge dich jetzt ein um zu teilen ob du zockst oder nicht.</p>
           <div className="flex gap-2.5">
             <Link href="/login" className="flex-1 text-center py-2.5 bg-green text-white rounded-xl text-sm font-semibold no-underline">
-              Sign in
+              Einloggen
             </Link>
             <Link href="/register" className="flex-1 text-center py-2.5 bg-white border border-border text-ink rounded-xl text-sm font-semibold no-underline">
-              Create account
+              Account erstellen
             </Link>
           </div>
         </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
   if (authLoading || fetching) {
     return (
       <main className="min-h-screen bg-paper flex items-center justify-center">
-        <p className="text-sm text-muted">Loading…</p>
+        <p className="text-sm text-muted">Lädt…</p>
       </main>
     )
   }
@@ -145,7 +145,7 @@ export default function HomePage() {
         <div className="w-full max-w-sm flex items-center justify-between animate-fade-up">
           <Logo />
           <button onClick={logout} className="text-sm text-muted hover:text-ink bg-transparent border-none cursor-pointer p-0">
-            Sign out
+            Ausloggen
           </button>
         </div>
         <div className="w-full max-w-sm bg-white border border-border rounded-card shadow-card p-7 animate-fade-up-1">
@@ -155,10 +155,10 @@ export default function HomePage() {
               <path d="M2 7l10 7 10-7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <h1 className="font-serif text-xl text-ink font-normal mb-2">Verify your email</h1>
+          <h1 className="font-serif text-xl text-ink font-normal mb-2">Email bestätigen</h1>
           <p className="text-sm text-muted mb-5 leading-relaxed">
-            We sent a link to <strong className="text-ink font-semibold">{user.email}</strong>.
-            Click it to verify your account, then come back here.
+            Wir haben einen Link <strong className="text-ink font-semibold">{user.email}</strong> verschickt.
+            Klicke auf den Bestätigungslink um einen Account zu aktivieren.
           </p>
           <button
             onClick={handleCheckVerified}
@@ -169,7 +169,7 @@ export default function HomePage() {
           </button>
           <div className="mt-3 text-center">
             {resent
-              ? <span className="text-xs text-green">✓ Email resent</span>
+              ? <span className="text-xs text-green">✓ Email erneut gesendet</span>
               : <button onClick={handleResend} disabled={resending} className="text-xs text-muted hover:text-ink bg-transparent border-none cursor-pointer p-0">
                   {resending ? 'Sending…' : 'Resend verification email'}
                 </button>
@@ -192,7 +192,7 @@ export default function HomePage() {
         <div className="flex items-center gap-3">
           <span className="text-xs text-muted">{user?.displayName ?? user?.email}</span>
           <button onClick={logout} className="text-xs text-muted hover:text-ink bg-transparent border-none cursor-pointer p-0">
-            Sign out
+            Ausloggen
           </button>
           <Link href="/admin" className="text-xs text-muted hover:text-ink no-underline">Admin</Link>
         </div>
@@ -208,7 +208,7 @@ export default function HomePage() {
         )}
 
         <h1 className="font-serif text-[26px] leading-tight text-ink font-normal mb-5">
-          Are you joining<br />this Tuesday?
+          3X3 in der <br />TSVE Halle um 20 Uhr?
         </h1>
 
         {/* Cancelled banner */}
@@ -216,7 +216,7 @@ export default function HomePage() {
           <div className="flex items-start gap-2.5 bg-red-bg border border-red-border rounded-xl px-3.5 py-3 text-red mb-4">
             <span className="text-base leading-none mt-0.5">✕</span>
             <div>
-              <strong className="block text-sm font-semibold">Session cancelled</strong>
+              <strong className="block text-sm font-semibold">Termin wurde abgesagt</strong>
               {event.cancelledReason && <span className="text-xs">{event.cancelledReason}</span>}
             </div>
           </div>
@@ -232,7 +232,7 @@ export default function HomePage() {
                 ? 'bg-green border-green text-white shadow-sm'
                 : 'bg-green-bg border-green-border text-green hover:bg-green-100'}`}
           >
-            {attending === true && '✓ '}I'm coming
+            {attending === true && '✓ '}Ich zocke
           </button>
           <button
             onClick={() => handleToggle(false)}
@@ -242,7 +242,7 @@ export default function HomePage() {
                 ? 'bg-ink border-ink text-white'
                 : 'bg-paper border-border text-muted hover:text-ink hover:bg-stone-100'}`}
           >
-            {attending === false && '✕ '}Not this week
+            {attending === false && '✕ '}Bin raus
           </button>
         </div>
 
@@ -252,14 +252,14 @@ export default function HomePage() {
 
         {/* Attendees */}
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-[13px] font-semibold text-ink">Coming this week</span>
+          <span className="text-[13px] font-semibold text-ink">Zockt diese Woche</span>
           <span className="text-xs font-semibold text-muted bg-paper border border-border rounded-full px-2 py-0.5">
             {count}
           </span>
         </div>
 
         {count === 0 ? (
-          <p className="text-xs text-faint">No one yet — be the first!</p>
+          <p className="text-xs text-faint">Noch keine Zusage - sei der erste!</p>
         ) : (
           <ul className="flex flex-col gap-2 list-none p-0 m-0">
             {attendees.map((a) => (
@@ -277,7 +277,7 @@ export default function HomePage() {
         )}
       </div>
 
-      <p className="text-xs text-faint mt-3 animate-fade-up-2">Resets every Tuesday at 23:00</p>
+      <p className="text-xs text-faint mt-3 animate-fade-up-2">Wird jeden Dienstag um 23:00 Uhr zurückgesetzt</p>
     </main>
   )
 }
