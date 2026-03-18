@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { adminDb } from '@/lib/firebase/admin'
 import { EventDoc, getThisTuesdayDate } from '@/lib/eventHelpers'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(_req: NextRequest) {
   const ref  = adminDb.collection('events').doc('tuesday')
   const snap = await ref.get()

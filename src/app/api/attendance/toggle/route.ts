@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { adminDb, adminAuth } from '@/lib/firebase/admin'
 import { EventDoc, Attendee } from '@/lib/eventHelpers'
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest) {
   // Verify token
   const authHeader = req.headers.get('authorization') ?? ''

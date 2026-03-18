@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { adminDb } from '@/lib/firebase/admin'
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: NextRequest) {
   if (req.headers.get('x-admin-secret') !== process.env.ADMIN_SECRET) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
