@@ -1,0 +1,17 @@
+name: Tuesday Reset
+
+on:
+  schedule:
+    - cron: '0 23 * * 2'
+
+jobs:
+  reset:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call reset endpoint
+        run: |
+          curl -X POST ${{ secrets.APP_URL }}/api/reset \
+            -H "x-admin-secret: ${{ secrets.ADMIN_SECRET }}" \
+            --fail \
+            --silent \
+            --show-error
