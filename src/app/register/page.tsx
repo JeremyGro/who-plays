@@ -9,7 +9,7 @@ function Logo() {
   return (
     <div className="flex items-center gap-2 mb-6">
       <div className="w-2 h-2 rounded-full bg-green" />
-      <span className="text-sm font-semibold text-ink">Tuesday Meetup</span>
+      <span className="text-sm font-semibold text-ink">TSVE 3X3</span>
     </div>
   )
 }
@@ -42,7 +42,7 @@ export default function RegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (pw.length < 6) { setError('Password must be at least 6 characters.'); return }
+    if (pw.length < 6) { setError('Passwort muss mindestens 6 Zeichen enthalten.'); return }
     setBusy(true); setError('')
     try {
       await register(email, pw, name.trim())
@@ -50,8 +50,8 @@ export default function RegisterPage() {
     } catch (err: any) {
       setError(
         err.code === 'auth/email-already-in-use'
-          ? 'An account with this email already exists.'
-          : 'Registration failed. Try again.'
+          ? 'Account mit dieser E-Mail existiert bereits.'
+          : 'Registrierung fehlgeschlagen. Versuche es erneut.'
       )
     } finally {
       setBusy(false)
@@ -65,7 +65,7 @@ export default function RegisterPage() {
       router.replace('/')
     } catch (err: any) {
       if (err.code !== 'auth/popup-closed-by-user') {
-        setError('Google sign-in failed. Try again.')
+        setError('Google Login fehlgeschlagen. Bitte versuche es erneut.')
       }
     } finally {
       setGoogleBusy(false)
@@ -90,18 +90,18 @@ export default function RegisterPage() {
               <path d="M2 7l10 7 10-7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <h1 className="font-serif text-2xl text-ink font-normal mb-2">Check your inbox</h1>
+          <h1 className="font-serif text-2xl text-ink font-normal mb-2">Email Postfach überprüfen</h1>
           <p className="text-sm text-muted mb-5 leading-relaxed">
-            We sent a verification link to{' '}
+            Wir haben einen Link{' '}
             <strong className="text-ink font-semibold">{email}</strong>.
-            Click the link to activate your account, then sign in.
+            Klicke auf den Bestätigungslink um einen Account zu aktivieren.
           </p>
           <Link href="/login" className="block text-center py-2.5 bg-green text-white rounded-xl text-sm font-semibold no-underline">
-            Go to sign in
+            Weiter zum Login
           </Link>
           <div className="mt-3 text-center">
             {resent
-              ? <span className="text-xs text-green">✓ Email resent</span>
+              ? <span className="text-xs text-green">✓ Email erneut gesendet</span>
               : <button onClick={handleResend} disabled={resending} className="text-xs text-muted hover:text-ink bg-transparent border-none cursor-pointer p-0">
                   {resending ? 'Sending…' : "Didn't get it? Resend"}
                 </button>
@@ -117,7 +117,7 @@ export default function RegisterPage() {
     <main className="min-h-screen bg-paper flex items-center justify-center p-4">
       <div className="w-full max-w-sm bg-white border border-border rounded-card shadow-card p-7 animate-fade-up">
         <Logo />
-        <h1 className="font-serif text-2xl text-ink font-normal mb-5">Create account</h1>
+        <h1 className="font-serif text-2xl text-ink font-normal mb-5">Account erstellen</h1>
 
         {/* Google button */}
         <button
@@ -137,7 +137,7 @@ export default function RegisterPage() {
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-1">
-          <label className="text-[13px] font-semibold text-ink mt-2">Your name</label>
+          <label className="text-[13px] font-semibold text-ink mt-2">Dein Name</label>
           <input
             type="text" required autoFocus value={name}
             onChange={e => setName(e.target.value)}
@@ -151,7 +151,7 @@ export default function RegisterPage() {
             placeholder="you@example.com"
             className="px-3 py-2.5 border border-border rounded-lg text-sm text-ink bg-paper outline-none focus:border-ink transition-colors"
           />
-          <label className="text-[13px] font-semibold text-ink mt-2">Password</label>
+          <label className="text-[13px] font-semibold text-ink mt-2">Passwort</label>
           <input
             type="password" required value={pw}
             onChange={e => setPw(e.target.value)}
@@ -163,13 +163,13 @@ export default function RegisterPage() {
             type="submit" disabled={busy || googleBusy}
             className="mt-3 py-2.5 bg-green text-white rounded-xl text-sm font-semibold border-none cursor-pointer disabled:opacity-50"
           >
-            {busy ? 'Creating account…' : 'Create account'}
+            {busy ? 'Lädt…' : 'Account erstellen'}
           </button>
         </form>
 
         <p className="mt-4 text-center text-[13px] text-muted">
-          Already have an account?{' '}
-          <Link href="/login" className="text-green font-semibold no-underline">Sign in</Link>
+          Du hast bereits einen Account?{' '}
+          <Link href="/login" className="text-green font-semibold no-underline">Einloggen</Link>
         </p>
       </div>
     </main>
