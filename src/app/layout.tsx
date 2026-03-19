@@ -1,23 +1,29 @@
 import type { Metadata } from 'next'
+import { Plus_Jakarta_Sans, Lora } from 'next/font/google'
 import { AuthProvider } from '@/context/AuthContext'
 import './globals.css'
+import data from "@/data/data.json"
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets:  ['latin'],
+  variable: '--font-sans',
+  display:  'swap',
+})
+
+const lora = Lora({
+  subsets:  ['latin'],
+  variable: '--font-serif',
+  display:  'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'TSVE 3X3',
-  description: 'Kommst du zocken?',
+  title: data.title,
+  description: data.description,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="de" className={`${jakarta.variable} ${lora.variable}`}>
       <body>
         <AuthProvider>{children}</AuthProvider>
       </body>

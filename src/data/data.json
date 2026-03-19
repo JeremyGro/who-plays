@@ -1,0 +1,17 @@
+{
+  "title": "TSVE - 3X3 Training",
+  "description": "Zockst du am kommenden Dienstag 3X3?",
+  "mailNotVerified": "Email nicht bestätigt",
+  "verifyMail": "Deine E-Mail bestätigen",
+  "checkMail": "Überprüfe dein Mail Postfach und Spam Ordner.",
+  "loading": "Lädt...",
+  "isSending": "Sendet...",
+  "sentAgain": "E-Mail erneut senden",
+  "resent": "E-Mail erneut verschickt",
+  "logIn": "Einloggen",
+  "createAccount": "Account erstellen",
+  "logOut": "Ausloggen",
+  "initialHeadline": "TSVE - 3X3 Training Login",
+  "initialInfo": "Jetzt einloggen um dein Team mitzuteilen ob du am Training teilnimmst.",
+  "resetsOnTuesday": "Wird jeden Dienstag um 23 Uhr zurückgesetzt"
+}

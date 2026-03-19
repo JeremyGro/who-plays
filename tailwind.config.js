@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans:  ['Plus Jakarta Sans', 'sans-serif'],
-        serif: ['Lora', 'serif'],
+        sans:  ['var(--font-sans)', 'sans-serif'],
+        serif: ['var(--font-serif)', 'serif'],
       },
       colors: {
         ink:    '#1a1917',
