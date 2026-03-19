@@ -19,5 +19,7 @@ export async function GET(_req: NextRequest) {
   }
 
   const data = snap.data() as EventDoc
-  return NextResponse.json({ ...data, thisTuesday })
+  return NextResponse.json({ ...data, thisTuesday }, {
+    headers: { 'Cache-Control': 's-maxage=10, stale-while-revalidate=30' },
+  })
 }

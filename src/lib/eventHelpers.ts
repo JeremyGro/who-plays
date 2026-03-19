@@ -24,7 +24,7 @@ export function getThisTuesdayDate(): string {
 
 export function formatTuesdayDate(dateStr: string): string {
   const d = new Date(dateStr + 'T12:00:00')
-  return d.toLocaleDateString('en-DE', {
+  return d.toLocaleDateString('de-DE', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',

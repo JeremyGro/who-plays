@@ -4,7 +4,7 @@
 
 @layer base {
   html, body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Font family is injected via CSS variables by next/font in layout.tsx */
     background-color: #f6f5f0;
     color: #1a1917;
     -webkit-font-smoothing: antialiased;

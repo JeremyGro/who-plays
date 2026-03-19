@@ -84,6 +84,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const reloadUser = async () => {
     if (auth.currentUser) {
       await reload(auth.currentUser)
+      await auth.currentUser.getIdToken(true)
       setUser({ ...auth.currentUser })
     }
   }

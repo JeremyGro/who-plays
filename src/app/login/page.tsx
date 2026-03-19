@@ -78,28 +78,6 @@ export default function LoginPage() {
 
         <h1 className="font-serif text-2xl text-ink font-normal mb-5">Einloggen</h1>
 
-        {/* Unverified warning */}
-        {user && !user.emailVerified && (
-          <div className="flex items-start gap-2.5 bg-yellow-50 border border-yellow-200 rounded-xl px-3.5 py-3 text-yellow-800 mb-4">
-            <svg className="shrink-0 mt-0.5" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 8v4M12 16h.01" strokeLinecap="round" />
-            </svg>
-            <div>
-              <strong className="block text-[13px] font-semibold">Email nicht bestätigt</strong>
-              <span className="text-xs">
-                Überprüfe dein Mail Postfach.{' '}
-                {resent
-                  ? <span className="text-green font-medium">Erneut gesendet ✓</span>
-                  : <button onClick={handleResend} disabled={resending} className="underline bg-transparent border-none cursor-pointer text-xs text-yellow-800 p-0">
-                      {resending ? 'Sending…' : 'Resend email'}
-                    </button>
-                }
-              </span>
-            </div>
-          </div>
-        )}
-
         {/* Google button */}
         <button
           onClick={handleGoogle}
